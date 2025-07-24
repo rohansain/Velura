@@ -1,3 +1,11 @@
+/* Adding for tailwind */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* Adding google icons */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+/* uilight.netlify */
+@import url("https://uilight.netlify.app/main.css");
+
