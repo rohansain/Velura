@@ -2,8 +2,11 @@ import Navbar from "../components/Navbar";
 import { getAllProduct } from "../api/getAllProduct";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import { useCart } from "../context/cartContext";
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const { cart } = useCart();
+  console.log(cart);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -25,7 +28,6 @@ const Home = () => {
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        );
       </main>
     </>
   );

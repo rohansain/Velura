@@ -9,12 +9,16 @@ function Navbar() {
         </Link>
 
         <nav className="flex items-center gap-4 text-2xl">
-          <span className="material-symbols-outlined cursor-pointer">
-            favorite
-          </span>
-          <span className="material-symbols-outlined cursor-pointer">
-            shopping_cart
-          </span>
+          <Link to="/favourite">
+            <span className="material-symbols-outlined cursor-pointer">
+              Favourite
+            </span>
+          </Link>
+          <Link to="/cart">
+            <span className="material-symbols-outlined cursor-pointer">
+              shopping_cart
+            </span>
+          </Link>
           <span className="material-symbols-outlined cursor-pointer">
             account_circle
           </span>

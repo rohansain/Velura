@@ -6,6 +6,9 @@ export const getAllProduct = async () => {
   try {
     const { data } = await axios.get(url);
     console.log(data);
+    data.products.filter(
+      (product) => (product.price = Math.floor(product.price) + 100)
+    );
     return data.products;
   } catch (err) {
     return err;
