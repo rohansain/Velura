@@ -47,7 +47,7 @@ const Pricebar = () => {
         </div>
 
         <div className="cta-btn">
-          <button className="w-full bg-red-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-red -600 transition-colors duration-200">
+          <button className="w-full bg-pink-500  hover:bg-pink-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-red -600 transition-colors duration-200">
             Place Order
           </button>
         </div>

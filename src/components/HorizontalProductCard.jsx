@@ -1,12 +1,26 @@
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext";
+import { useFavourite } from "../context/FavouriteContext";
+import { findProductInCart } from "../utils/findProductInCart";
 const HorizontalProductCard = ({ product }) => {
   const { cartDispatch } = useCart();
-  const removeProduct = (pid) => {
-    console.log("helo");
+  const removeProduct = (product) => {
     cartDispatch({
       type: "REMOVE_FROM_CART",
       payload: { product },
     });
+  };
+  const navigate = useNavigate();
+  const { Favourite, FavouriteDispatch } = useFavourite();
+  const isProductInFavourite = findProductInCart(Favourite, product.id);
+  const addToWishlist = (product) => {
+    !isProductInFavourite
+      ? FavouriteDispatch({
+          type: "ADD_TO_Favourite",
+          payload: { product },
+        })
+      : navigate("/favourite");
+    removeProduct(product);
   };
   return (
     <>
@@ -38,8 +52,11 @@ const HorizontalProductCard = ({ product }) => {
               </button>
             </div>
             <div className="cta-btn">
-              <button className="button hori-btn btn-outline-primary btn-icon d-flex align-center justify-center gap cursor btn-margin whitespace-nowrap">
-                Move to Wishlist
+              <button
+                className="button hori-btn btn-outline-primary btn-icon d-flex align-center justify-center gap cursor btn-margin whitespace-nowrap"
+                onClick={() => addToWishlist(product)}
+              >
+                {isProductInFavourite ? "Go to Wishlist" : "Move to Wishlist"}
               </button>
             </div>
           </div>
